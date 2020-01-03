@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 function sanitizeFormPassword($inputText) {
 	$inputText = strip_tags($inputText);
 	return $inputText;
