@@ -25,8 +25,9 @@
 </head>
 </head>
 <body>
-<?php
 
+<?php
+/*
 if(isset($_POST['registerButton'])) {
 	echo '<script>
 			$(document).ready(function() {
@@ -43,7 +44,7 @@ else {
 			});
 		</script>';
 }
-
+*/
 ?>
 
 

@@ -48,7 +48,7 @@
 		private function insertUserDetails($un, $fn, $ln, $em, $pw) {
 			$profilePic = "assets/images/profile-pics/head_emerald.png";
 			$date = date("Y-m-d");
-			$result = mysqli_query($this->con, "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$pw', '$date', '$profilePic')");
+			$result = mysqli_query($this->con, "INSERT INTO users (username,firstName,lastName,email,password,signUpDate,profilePic) VALUES ('$un', '$fn', '$ln', '$em', '$pw', '$date', '$profilePic')");
 
 			return $result;
 		}
