@@ -1,38 +1,25 @@
+<?php include("includes/header.php") ?>
+<h1 class="pageHeadingBig">Vous pourriez aussi aimer</h1>
+<div class="gridViewContainer">
 <?php
-include("includes/config.php");
+$albumQuery = mysqli_query($con,"SELECT * FROM albums ORDER BY RAND() LIMIT 10");
+while($row = mysqli_fetch_array($albumQuery)){
+	echo "<div class='gridViewItem'>
+            <a href='album.php?id=". $row['id']."'>
+					<img src='" . $row['artworkPath'] . "'>
 
-//session_destroy(); LOGOUT
-/*
-if(isset($_SESSION['userLoggedIn'])) {
-	$userLoggedIn = $_SESSION['userLoggedIn'];
+					<div class='gridViewInfo'>"
+						. $row['title'] .
+					"</div>
+
+				</div>";
 }
-else {
-	header("Location: register.php");
-}
-*/
 ?>
-<html>
-<head>
-	<title>Welcome to Sonorwaves!</title>
-	<link rel="stylesheet" href="assets/css/style.css" />
-</head>
 
-<body>
-
-
-<div id="mainContainer">
-
-<div id="topContainer">
-
-	<?php include("includes/navBarContainer.php");?>
 
 </div>
 
-<?php include("includes/nowPlayingBarContainer.php");?>
-</div>
 
+<?php include("includes/footer.php") ?>
 
-
-</body>
-
-</html>
+	
