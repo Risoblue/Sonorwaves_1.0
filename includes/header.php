@@ -4,20 +4,21 @@ include("includes/classes/Artist.php");
 include("includes/classes/Album.php");
 include("includes/classes/Song.php");
 
-//session_destroy(); LOGOUT
-/*
+session_destroy(); LOGOUT
+
 if(isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
 }
 else {
 	header("Location: register.php");
 }
-*/
 ?>
 <html>
 <head>
 	<title>Welcome to Sonorwaves!</title>
-	<link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/jquery-3.4.1.js"></script>
+    <script src="assets/js/script.js"></script>
 </head>
 
 <body>
