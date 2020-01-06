@@ -18,18 +18,20 @@ $artist = $album->getArtist();
 	</div>
 
 	<div class="rightSection">
-    <h2><?php echo $album->getTitle(); ?></h2>
-	<p>By <?php echo $artist->getName(); ?></p>
-	<p><?php echo $album->getNumberOfSongs(); ?> songs</p>
+		<h2><?php echo $album->getTitle(); ?></h2>
+		<p>DE <?php echo $artist->getName(); ?></p>
+		<p><?php echo $album->getNumberOfSongs(); ?> Chansons</p>
 	</div>
 
 </div>
+
+
 <div class="tracklistContainer">
 	<ul class="tracklist">
-		
-
+	
 		<?php
 		$songIdArray = $album->getSongIds();
+		
         $i=1;
 		foreach($songIdArray as $songId) {
             $albumSong = new Song($con, $songId);
