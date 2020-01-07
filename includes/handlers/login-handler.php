@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['loginButton'])) {
-	
+	//Seconnecter 
 	$username = $_POST['loginUsername'];
 	$password = $_POST['loginPassword'];
 
