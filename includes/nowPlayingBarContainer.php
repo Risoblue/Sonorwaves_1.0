@@ -20,10 +20,28 @@ $(document).ready(function() {
 
 
 function setTrack(trackId, newPlaylist, play) {
-    
+
+	audioElement.setTrack("assets/music/bensound-clearday.mp3");
+
+	if(play == true) {
+		audioElement.play();
+	}
+}
+
+function playSong() {
+	$(".controlButton.play").hide();
+	$(".controlButton.pause").show();
+	audioElement.play();
+}
+
+function pauseSong() {
+	$(".controlButton.play").show();
+	$(".controlButton.pause").hide();
+	audioElement.pause();
 }
 
 </script>
+
 
 
 <div id="nowPlayingBarContainer">
@@ -58,27 +76,27 @@ function setTrack(trackId, newPlaylist, play) {
 
         <div class="buttons">
 
-            <button class="controlButton shuffle" title="lecture aléatoire">
+            <button class="controlButton shuffle" title="Shuffle button">
                 <img src="assets/images/icons/shuffle.png" alt="Shuffle">
             </button>
 
-            <button class="controlButton previous" title="Précédent">
+            <button class="controlButton previous" title="Previous button">
                 <img src="assets/images/icons/previous.png" alt="Previous">
             </button>
 
-            <button class="controlButton play" title="Lecture">
+            <button class="controlButton play" title="Play button" onclick="playSong()">
                 <img src="assets/images/icons/play.png" alt="Play">
             </button>
 
-            <button class="controlButton pause" title="Pause " style="display: none;">
+            <button class="controlButton pause" title="Pause button" style="display: none;" onclick="pauseSong()">
                 <img src="assets/images/icons/pause.png" alt="Pause">
             </button>
 
-            <button class="controlButton next" title="suivant">
+            <button class="controlButton next" title="Next button">
                 <img src="assets/images/icons/next.png" alt="Next">
             </button>
 
-            <button class="controlButton repeat" title="Activer la répétition">
+            <button class="controlButton repeat" title="Repeat button">
                 <img src="assets/images/icons/repeat.png" alt="Repeat">
             </button>
 
@@ -105,6 +123,7 @@ function setTrack(trackId, newPlaylist, play) {
 
 
 </div>
+
 
 <div id="nowPlayingRight">
     <div class="labarredevolume">
