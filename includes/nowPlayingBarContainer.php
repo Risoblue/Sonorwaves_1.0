@@ -28,28 +28,29 @@ function setTrack(trackId, newPlaylist, play) {
 
 <div id="nowPlayingBarContainer">
 
-<div id="nowPlayingBar">
+	<div id="nowPlayingBar">
 
-<div id="nowPlayingLeft">
-<div class="content">
-    <span class="albumLink" >
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwdGdH-OiivPe7Anc4rylxRRgQ4zTtE3ywaC35LjqdhyO-mJ5s&s" class="albumArtwork">
-    </span>
-    <div class="trackInfo">
+		<div id="nowPlayingLeft">
+			<div class="content">
+				<span class="albumLink" >
+					<img role="link" tabindex="0" src="" class="albumArtwork">
+				</span>
+				
+				<div class="trackInfo">
 
-        <span class="trackName">
-            <span>Who am i</span>
-        </span>
+					<span class="trackName">
+						<span role="link" tabindex="0"></span>
+					</span>
 
-        <span class="artistName">
-            <span>Mohamed aallam</span>
-        </span>
+					<span class="artistName">
+						<span role="link" tabindex="0"></span>
+					</span>
 
-    </div>
+		</div>
 
 
 
-</div>
+	</div>
 </div>
 
 <div id="nowPlayingCenter">
