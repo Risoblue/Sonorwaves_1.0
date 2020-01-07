@@ -1,5 +1,6 @@
 <?php
 include("includes/config.php");
+include("includes/classes/User.php");
 include("includes/classes/Artist.php");
 include("includes/classes/Album.php");
 include("includes/classes/Song.php");
@@ -8,6 +9,8 @@ include("includes/classes/Song.php");
 
 if(isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
+	$username = $userLoggedIn->getUsername();
+	echo "<script>userLoggedIn = '$username';</script>";
 }
 else {
 	header("Location: register.php");
@@ -15,7 +18,7 @@ else {
 ?>
 <html>
 <head>
-	<title>Welcome to Sonorwaves!</title>
+	<title>Bienvenue à Sonorwaves!</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/jquery-3.4.1.js"></script>
     <script src="assets/js/script.js"></script>
@@ -23,11 +26,10 @@ else {
 
 <body>
 
+	<div id="mainContainer">
 
-<div id="mainContainer">
+		<div id="topContainer">
 
-<div id="topContainer">
-
-	<?php include("includes/navBarContainer.php");?>
-	<div id="mainViewContainer">
-	<div id="mainContent">
+			<?php include("includes/navBarContainer.php");?>
+			<div id="mainViewContainer">
+				<div id="mainContent">

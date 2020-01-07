@@ -38,6 +38,7 @@ $(function() {
 
 </script>
 
+<?php if($term == "") exit(); ?>
 
 <div class="tracklistContainer borderBottom">
 	<h2>CHANSONS</h2>
@@ -108,32 +109,57 @@ $(function() {
 	<h2>ARTISTES</h2>
 
 	<?php
-	$artistsQuery = mysqli_query($con, "SELECT id FROM artists WHERE name LIKE '$term%' LIMIT 10");
-	
-	if(mysqli_num_rows($artistsQuery) == 0) {
-		echo "<span class='noResults'>Aucun artiste trouvé portant le nom de " . $term . "</span>";
-	}
+		$artistsQuery = mysqli_query($con, "SELECT id FROM artists WHERE name LIKE '$term%' LIMIT 10");
+		
+		if(mysqli_num_rows($artistsQuery) == 0) {
+			echo "<span class='noResults'>Aucun artiste trouvé portant le nom de " . $term . "</span>";
+		}
 
-	while($row = mysqli_fetch_array($artistsQuery)) {
-		$artistFound = new Artist($con, $row['id']);
+		while($row = mysqli_fetch_array($artistsQuery)) {
+			$artistFound = new Artist($con, $row['id']);
 
-		echo "<div class='searchResultRow'>
-				<div class='artistName'>
+			echo "<div class='searchResultRow'>
+					<div class='artistName'>
 
-					<span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() ."\")'>
-					"
-					. $artistFound->getName() .
-					"
-					</span>
+						<span role='link' tabindex='0' onclick='openPage(\"artist.php?id=" . $artistFound->getId() ."\")'>
+						"
+						. $artistFound->getName() .
+						"
+						</span>
 
-				</div>
+					</div>
 
-			</div>";
+				</div>";
 
-	}
-
-
+		}
 	?>
+
+</div>
+
+
+<div class="gridViewContainer">
+
+	<?php
+		$albumQuery = mysqli_query($con,"SELECT * FROM albums WHERE title LIKE '$term%' LIMIT 10");
+		
+		if(mysqli_num_rows($artistsQuery) == 0) {
+		echo "<span class='noResults'>Aucun album trouvé portant le nom de " . $term . "</span>";
+		}
+		
+		while($row = mysqli_fetch_array($albumQuery)){
+			
+			echo "<div class='gridViewItem'>
+						<a href='album.php?id=". $row['id']."'>
+							<img src='" . $row['artworkPath'] . "'>
+
+						<div class='gridViewInfo'>"
+							. $row['title'] .
+						"</div>
+
+				</div>";
+		}
+	?>
+
 
 </div>
 
