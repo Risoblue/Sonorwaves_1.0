@@ -21,7 +21,25 @@ $(document).ready(function() {
 
 function setTrack(trackId, newPlaylist, play) {
 
-	audioElement.setTrack("assets/music/bensound-clearday.mp3");
+	$.post("includes/handlers/ajax/getSongJson.php", { songId: trackId }, function(data) {
+
+		var track = JSON.parse(data);
+		$(".trackName span").text(track.title);
+
+		$.post("includes/handlers/ajax/getArtistJson.php", { artistId: track.artist }, function(data) {
+			var artist = JSON.parse(data);
+			$(".artistName span").text(artist.name);
+		});
+
+		$.post("includes/handlers/ajax/getAlbumJson.php", { albumId: track.album }, function(data) {
+			var album = JSON.parse(data);
+			$(".albumLink img").attr("src", album.artworkPath);
+		});
+
+
+		audioElement.setTrack(track.path);
+		audioElement.play();
+	});
 
 	if(play == true) {
 		audioElement.play();
@@ -41,6 +59,7 @@ function pauseSong() {
 }
 
 </script>
+
 
 
 
