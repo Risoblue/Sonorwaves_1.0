@@ -1,5 +1,4 @@
-<?php include("includes/header.php"); 
-
+<?php include("includes/includedFiles.php"); 
 if(isset($_GET['id'])) {
 	$albumId = $_GET['id'];
 }
@@ -38,26 +37,27 @@ $artist = $album->getArtist();
 			$albumArtist = $albumSong->getArtist();
 
 			echo "<li class='tracklistRow'>
-					<div class='trackCount'>
-						<img class='play' src='assets/images/icons/play-white.png'>
-						<span class='trackNumber'>$i</span>
-					</div>
+			<div class='trackCount'>
+				<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'>
+				<span class='trackNumber'>$i</span>
+			</div>
 
 
-					<div class='trackInfo'>
-						<span class='trackName'>" . $albumSong->getTitle() . "</span>
-						<span class='artistName'>" . $albumArtist->getName() . "</span>
-                    </div>
-                    <div class='trackOptions'>
-						<img class='optionsButton' src='assets/images/icons/more.png' onclick = 'showOptionsMenu(this)'>
-                    </div>
-                    <div class='trackDuration'>
-						<span class='duration'>" . $albumSong->getDuration() . "</span>
-					</div>
+			<div class='trackInfo'>
+				<span class='trackName'>" . $albumSong->getTitle() . "</span>
+				<span class='artistName'>" . $albumArtist->getName() . "</span>
+			</div>
+
+			<div class='trackOptions'>
+				<img class='optionsButton' src='assets/images/icons/more.png'>
+			</div>
+
+			<div class='trackDuration'>
+				<span class='duration'>" . $albumSong->getDuration() . "</span>
+			</div>
 
 
-
-				</li>";
+		</li>";
 
 			$i = $i + 1;
 
@@ -66,7 +66,7 @@ $artist = $album->getArtist();
 		?>
 		
 		<script>
-			var tempSongIds = '<? php echo json_encode($songIdArray); ?>';
+			var tempSongIds = '<?php echo json_encode($songIdArray); ?>';
 			tempPlaylist = JSON.parse(tempSongIds);
 		</script>
 
@@ -76,8 +76,5 @@ $artist = $album->getArtist();
 
 <nav class="optionsMenu">
 	<input type="hidden" class="songId">
-	<?php echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>
+	<!--<?php// echo Playlist::getPlaylistsDropdown($con, $userLoggedIn->getUsername()); ?>-->
 </nav>
-
-
-<?php include("includes/footer.php"); ?>

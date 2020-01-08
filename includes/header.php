@@ -9,8 +9,8 @@ include("includes/classes/Song.php");
 
 if(isset($_SESSION['userLoggedIn'])) {
 	$userLoggedIn = $_SESSION['userLoggedIn'];
-	$username = $userLoggedIn->getUsername();
-	echo "<script>userLoggedIn = '$username';</script>";
+	//$username = $userLoggedIn->getUsername();
+	echo "<script>userLoggedIn = $'userLoggedIn';</script>";
 }
 else {
 	header("Location: register.php");
@@ -20,7 +20,7 @@ else {
 <head>
 	<title>Bienvenue à Sonorwaves!</title>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <script src="assets/js/jquery-3.4.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>
 </head>
 
