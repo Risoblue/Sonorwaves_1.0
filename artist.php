@@ -20,7 +20,7 @@ $artist = new Artist($con, $artistId);
 			<h1 class="artistName"><?php echo $artist->getName(); ?></h1>
 
 			<div class="headerButtons">
-				<button class="button" onclick = "playFirstSong()">LECTURE</button>
+				<button class="button blue" onclick = "playFirstSong()">LECTURE</button>
 			</div>
 
 		</div>
@@ -47,7 +47,7 @@ $artist = new Artist($con, $artistId);
 
 			echo "<li class='tracklistRow'>
 					<div class='trackCount'>
-						<img class='play' src='assets/images/icons/play-white.png'>
+						<img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"" . $albumSong->getId() . "\", tempPlaylist, true)'>
 						<span class='trackNumber'>$i</span>
 					</div>
 
@@ -74,10 +74,9 @@ $artist = new Artist($con, $artistId);
 		?>
 		
 		<script>
-			var tempSongIds = '<? php echo json_encode($songIdArray); ?>';
+			var tempSongIds = '<?php echo json_encode($songIdArray); ?>';
 			tempPlaylist = JSON.parse(tempSongIds);
 		</script>
-
 
 	</ul>
 </div>
@@ -88,10 +87,6 @@ $artist = new Artist($con, $artistId);
 		$albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE artist = '$artistId' ");
 
 		while($row = mysqli_fetch_array($albumQuery)) {
-			
-
-
-
 			echo "<div class='gridViewItem'>
 					<span role='link' tabindex='0' onclick='openPage(\"album.php?id=" . $row['id'] . "\")'>
 						<img src='" . $row['artworkPath'] . "'>
