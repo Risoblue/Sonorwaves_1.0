@@ -123,13 +123,10 @@ function setShuffle() {
 	$(".controlButton.shuffle img").attr("src", "assets/images/icons/" + imageName);
 
 	if(shuffle == true) {
-		//Randomize playlist
 		shuffleArray(shufflePlaylist);
 		currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id);
 	}
 	else {
-		//shuffle has been deactivated
-		//go back to regular playlist
 		currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
 	}
 

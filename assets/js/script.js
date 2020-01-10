@@ -7,17 +7,58 @@ var currentIndex = 0;
 var repeat = false;
 var shuffle = false;
 var userLoggedIn;
+var timer;
 function openPage(url) {
 
 	if(url.indexOf("?") == -1) {
 		url = url + "?";
 	}
 
-	var encodedUrl = encodeURI(url + "&userLoggedIn=" + userLoggedIn);
+	var encodedUrl = encodeURI(url +"&userLoggedIn=" + userLoggedIn);
+	console.log(encodedUrl);
 	$("#mainContent").load(encodedUrl);
+	$("body").scrollTop(0);
+	history.pushState(null, null, url);
+}
+function createPlaylist() {
+	console.log(userLoggedIn);
+	var popup = prompt(" Veuillez saisir le nom de votre playlist ");
+
+	if(popup != null) {
+
+		$.post("includes/handlers/ajax/createPlaylist.php", { name: popup, username: userLoggedIn })
+		.done(function(error) {
+
+			if(error != "") {
+				alert(error);
+				return;
+			}
+
+			openPage("yourMusic.php");
+		});
+
+	}
 
 }
+function deletePlaylist(playlistId) {
+	var prompt = confirm("Voulez-vous vraiment supprimer cette playlist ?");
 
+	if(prompt == true) {
+
+		$.post("includes/handlers/ajax/deletePlaylist.php", { playlistId: playlistId })
+		.done(function(error) {
+
+			if(error != "") {
+				alert(error);
+				return;
+			}
+
+			openPage("yourMusic.php");
+		});
+
+
+	}
+}
 
 function formatTime(seconds) {
 	var time = Math.round(seconds);

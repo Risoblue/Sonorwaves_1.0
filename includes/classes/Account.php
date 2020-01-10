@@ -30,7 +30,6 @@
 			$this->validatePasswords($pw, $pw2);
 
 			if(empty($this->errorArray) == true) {
-				//Insert into db
 				return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
 			}
 			else {
