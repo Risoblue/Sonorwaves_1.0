@@ -12,7 +12,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) {
 		$userLoggedIn = new User($con, $_GET['userLoggedIn']);
 	}
 	else {
-		echo "Username variable was not passed into page. Check the openPage JS function";
+		echo "Le nom d'utilisateur n'est pas passe dans la page. Verifier la fonction openPage en JS";
 		exit();
 	}
 }

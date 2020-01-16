@@ -9,7 +9,7 @@ if(isset($_POST['name']) && isset($_POST['username'])) {
 	$query = mysqli_query($con, "INSERT INTO playlists (name ,owner ,dateCreated ) VALUES ('$name', '$username', '$date')");
 }
 else {
-	echo "Name or username parameters not passed into file";
+	echo "Le nom ou le nom d'utilisateur ne sont pas passe dans le fichier";
 }
 
 ?>

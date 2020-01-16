@@ -59,7 +59,7 @@
 				<h2>Se connecter</h2>
 				<p>
 				<?php echo $account->getError(Constants::$loginFailed); ?>
-					<label for="loginUsername">Username</label>
+					<label for="loginUsername">Nom d'utilisateur</label>
 					<input id="loginUsername" name="loginUsername" type="text" placeholder="eg.aziz_aallam"  value="<?php getInputValue('loginUsername') ?>" required>
 				</p>
 				<?php echo $account->getError(Constants::$loginFailed); ?>
@@ -81,7 +81,7 @@
 				<h2>S'inscrire gratuitement</h2>
 				<p>
 					<?php echo $account->getError(Constants::$usernameCharacters); ?>
-					<label for="username">Username</label>
+					<label for="username">Nom d'utilisateur</label>
 					<input id="username" name="username" type="text" placeholder="eg.aziz_aallam" value="<?php getInputValue('username') ?>" required>
 				</p>
 
@@ -113,7 +113,7 @@
 					<?php echo $account->getError(Constants::$passwordsDoNoMatch); ?>
 					<?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
 					<?php echo $account->getError(Constants::$passwordCharacters); ?>
-					<label for="password">Password</label>
+					<label for="password">Mot de Passe</label>
 					<input id="password" name="password" type="password" required>
 				</p>
 
