@@ -21,9 +21,7 @@ $oldPassword = $_POST['oldPassword'];
 $newPassword1 = $_POST['newPassword1'];
 $newPassword2 = $_POST['newPassword2'];
 
-$oldMd5 = md5($oldPassword);
-
-$passwordCheck = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$oldMd5'");
+$passwordCheck = mysqli_query($con, "SELECT * FROM users WHERE username='$username' AND password='$oldPassword'");
 if(mysqli_num_rows($passwordCheck) != 1) {
 	echo "Le mot de passe est incorrect";
 	exit();
@@ -43,10 +41,7 @@ if(strlen($newPassword1) > 30 || strlen($newPassword1) < 5) {
 	echo "Votre nom d'utilisateur doit comprendre entre 5 et 30 caractères";
 	exit();
 }
-
-$newMd5 = md5($newPassword1);
-
-$query = mysqli_query($con, "UPDATE users SET password='$newMd5' WHERE username='$username'");
+$query = mysqli_query($con, "UPDATE users SET password='$newPassword1' WHERE username='$username'");
 echo "Mise à jour réussie";
 
 ?>

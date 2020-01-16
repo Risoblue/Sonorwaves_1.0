@@ -2,7 +2,7 @@
 include("includes/includedFiles.php"); 
 ?>
 
-<h1 class="pageHeadingBig">You Might Also Like</h1>
+<h1 class="pageHeadingBig"> Vous pourriez aussi aimer </h1>
 
 <div class="gridViewContainer">
 
@@ -29,5 +29,6 @@ include("includes/includedFiles.php");
 
 		}
 	?>
+	
 
 </div>
